@@ -17,13 +17,18 @@ export class ContactListComponent implements OnInit {
     private contactListService: ContactListService,
     private flashMessages: FlashMessagesService,
     private router: Router
-    )
-    { }
+    ) { }
 
   ngOnInit() {
     this.contacts = new Array<Contact>();
 
     this.displayContactList();
+  }
+
+  private onDeleteClick(): void {
+     if (!confirm('Are You Sure?')) {
+      this.router.navigate(['/contact/contact-list']);
+     }
   }
 
   private displayContactList(): void {
