@@ -28,7 +28,7 @@ export class ContactListComponent implements OnInit {
 
   private displayContactList(): void {
     this.contactListService.getList().subscribe(data => {
-      if(data.success) {
+      if (data.success) {
         this.contacts = data.contactList;
       } else {
         this.flashMessages.show('User must be looged-in', {cssClass: 'alert-danger', timeOut: 3000});
